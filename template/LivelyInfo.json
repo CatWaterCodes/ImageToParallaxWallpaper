@@ -6,7 +6,7 @@
   "Desc": "A parallax wallpaper made using CatWaterCodes' tool!",
   "Author": "CatWater",
   "License": "MIT",
-  "Contact": "https://github.com/rocksdanister/WebGL-Fluid-Simulation",
+  "Contact": "https://github.com/CatWaterCodes/ImageToParallaxWallpaper",
   "Type": 1,
   "Arguments": "--audio --pause-event true",
   "FileName": "index.html"
