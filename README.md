@@ -7,9 +7,9 @@ This program is meant to separate the layers of an image and turn it into a para
 Here are some album covers turned into wallpapers and the settings used to accomplish that result:
 | Original Photo  | Parallax Result | Settings |
 | :---: | :---: | :--- |
-| <img src="https://github.com/user-attachments/assets/916232bc-2d58-4701-a076-e7ed6a8327ea" style="width: 300px; height: auto;"> | <img src="https://github.com/user-attachments/assets/cf02a08e-e46e-4b06-a798-a59fda2525f7" style="width: auto; height: 270px;"> | ```layer_num=16```<br>```background_color="#000000"```<br>```blur=True``` |
-| <img src="https://github.com/user-attachments/assets/a7d365cc-afd7-4f6b-84a2-6907a0fcae5d" style="width: 300px; height: auto;"> | <img src="https://github.com/user-attachments/assets/972abfb7-e792-4659-be36-e64bdd216275" style="width: 270px; height: auto;"> | ```layer_num=32```<br>```background_color="#ab72b5"```<br>```blur=True``` |
-| <img src="https://github.com/user-attachments/assets/a22b1440-8019-4fb9-9f9f-3c2c22517549" style="width: 300px; height: auto;"> | <img src="https://github.com/user-attachments/assets/040b92c9-cec4-437b-854a-b239e3913069" style="width: auto; height: 270px;"> | ```layer_num=3```<br>```background_color="#050808"```<br>```blur=False``` |
+| <img src="https://github.com/user-attachments/assets/916232bc-2d58-4701-a076-e7ed6a8327ea" style="width: 250px; height: auto;"> | <img src="https://github.com/user-attachments/assets/cf02a08e-e46e-4b06-a798-a59fda2525f7" style="width: 250px; height: auto;"> | ```layer_num=16```<br>```background_color="#000000"```<br>```blur=True``` |
+| <img src="https://github.com/user-attachments/assets/a7d365cc-afd7-4f6b-84a2-6907a0fcae5d" style="width: 250px; height: auto;"> | <img src="https://github.com/user-attachments/assets/972abfb7-e792-4659-be36-e64bdd216275" style="width: 250px; height: auto;"> | ```layer_num=32```<br>```background_color="#ab72b5"```<br>```blur=True``` |
+| <img src="https://github.com/user-attachments/assets/a22b1440-8019-4fb9-9f9f-3c2c22517549" style="width: 250px; height: auto;"> | <img src="https://github.com/user-attachments/assets/040b92c9-cec4-437b-854a-b239e3913069" style="width: 250px; height: auto;"> | ```layer_num=3```<br>```background_color="#050808"```<br>```blur=False``` |
 
 # Documentation:
 
