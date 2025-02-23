@@ -32,10 +32,6 @@ def generateLayers(img, n=32):
 
     #make the layers
     layers = [Image.new("RGBA", (width, height), (0,0,0,0)) for i in range(n)]
-
-    for i in [0,1,2,4,6,8,9,10,13,14,16,17,19,20,23,24,25,26,27,28,29,30,31]:
-        print(colors_sorted[i])
-    
     
     #iterate over the layers
     for i in range(n):
