@@ -8,9 +8,12 @@ def blackAndWhiteFromRGB(RGB):
     r, g, b = RGB
     return (r + g + b) / 3
 
-def processImage(img, n=32):
-    blurred_image = img.filter(ImageFilter.BoxBlur(1))
-    quantized_img = blurred_image.quantize(n, dither=Image.Dither.NONE)
+def processImage(img, n: int, blur: bool):
+    if blur:
+        blurred_image = img.filter(ImageFilter.BoxBlur(1))
+        quantized_img = blurred_image.quantize(n, dither=Image.Dither.NONE)
+    else:
+        quantized_img = img.quantize(n, dither=Image.Dither.NONE)
     return quantized_img
 
 def getRGBFromModeP(img: Image.Image):
@@ -25,10 +28,12 @@ def generateLayers(img, n=32):
     #get the images colors
     colors = []
     finished_layers = []
-    if img.mode == "P":
-        colors = getRGBFromModeP(img)
+    if img.mode != "P":
+        img = img.convert("P")
+    colors = getRGBFromModeP(img)
     colors_sorted = colors.copy()
     colors_sorted.sort(reverse=True, key=blackAndWhiteFromRGB)
+    print(img.getcolors())
 
     #make the layers
     layers = [Image.new("RGBA", (width, height), (0,0,0,0)) for i in range(n)]
@@ -55,7 +60,7 @@ def makeImageHTML(n: int):
         result += f'\n          <img src="layers/{i}.png" class="layers fit">'
     return result
 
-def generateParallaxBackground(img: str, name: str, n=32, bg_color = "#000000", reverse=False) -> None:
+def generateParallaxBackground(img: str, name: str, n=32, bg_color = "#000000", blur=True) -> None:
     """Generates a parallax wallpaper from a single image. The path of the image has to be given in the 'img' parameter. The 'name' parameter is the name of the wallpaper you are making, and it can be anything. The 'bg_color' parameter takes in a hexadecimal value for the background color of the wallpaper, and it is set to '#000000' by default (remember to include the hashtag)."""
     #open the image
     img = Image.open(img)
@@ -63,7 +68,7 @@ def generateParallaxBackground(img: str, name: str, n=32, bg_color = "#000000", 
     if img.mode != "RBG":
         img = img.convert("RGB")
     #process the image to make the layer generationg easier
-    processed_image = processImage(img, n)
+    processed_image = processImage(img, n, blur)
     #generate the layers
     parallax_layers = generateLayers(processed_image, n)
 
