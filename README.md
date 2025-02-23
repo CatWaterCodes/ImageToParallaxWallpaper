@@ -28,7 +28,7 @@ Here are some album covers turned into wallpapers and the settings used to accom
   python main.py
   ```
 5. Fill out the settings as you like:
-  ```shell
+  ```
   >>> graduation.png
   Select a name for your wallpaper: 
   >>> graduation
