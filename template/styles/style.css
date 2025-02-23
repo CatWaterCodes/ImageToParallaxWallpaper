@@ -1,0 +1,25 @@
+body {
+    background-color: BACKGROUNDCOLOR;
+    overflow: hidden;
+}
+
+.layer-container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+}
+
+.layers {
+    position: absolute;
+    
+}
+
+.fill {
+    height: 100vw;
+    width: 110vw;
+}
+
+.fit {
+    height: 100vh;
+    width: 100vh;
+}
