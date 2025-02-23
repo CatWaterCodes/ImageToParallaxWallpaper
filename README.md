@@ -7,8 +7,9 @@ This program is meant to separate the layers of an image and turn it into a para
 Here are some album covers turned into wallpapers and the settings used to accomplish that result:
 | Original Photo  | Parallax Result | Settings |
 | :---: | :---: | :--- |
-| ![the_deal](https://github.com/user-attachments/assets/916232bc-2d58-4701-a076-e7ed6a8327ea) | ![Title-GoogleChrome2025-02-2313-39-45-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/9fe3a4b8-abad-497c-bff4-d9b1a97868c6) | ```layer_num=16```<br>```background_color="#000000"``` |
-| ![graduation](https://github.com/user-attachments/assets/a7d365cc-afd7-4f6b-84a2-6907a0fcae5d) | ![Title-GoogleChrome2025-02-2314-41-38-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/540507ab-a59f-48cd-a287-f6c0b2d9b81e) | ```layer_num=32```<br>```background_color="#ab72b5"``` |
+| ![the_deal](https://github.com/user-attachments/assets/916232bc-2d58-4701-a076-e7ed6a8327ea) | ![Title-GoogleChrome2025-02-2313-39-45-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/9fe3a4b8-abad-497c-bff4-d9b1a97868c6) | ```layer_num=16```<br>```background_color="#000000"```<br>```blur=True``` |
+| ![graduation](https://github.com/user-attachments/assets/a7d365cc-afd7-4f6b-84a2-6907a0fcae5d) | ![Title-GoogleChrome2025-02-2314-41-38-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/540507ab-a59f-48cd-a287-f6c0b2d9b81e) | ```layer_num=32```<br>```background_color="#ab72b5"```<br>```blur=True``` |
+| ![dani](https://github.com/user-attachments/assets/a22b1440-8019-4fb9-9f9f-3c2c22517549) | ![Title-GoogleChrome2025-02-2315-47-21-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/ebc16bde-ff7e-49b6-b9af-3e0460921200) | ```layer_num=3```<br>```background_color="#050808"```<br>```blur=False``` |
 
 # Documentation:
 
@@ -52,3 +53,17 @@ Chose the number of layers your parallax effect will have. Number under 32 tend 
 
 ### The `bg_color` setting:
 Chose the background color of your wallpaper, that will show on the sides of the image if it doesn't fill the screen.  If the layers come appart due to a high layer count, this is the color that will shne through, so chose something neutral to the image so that it doesn't clash with the effect. If you use a layer count lower than 32 the background color will not shine through at all and you can use a contrasting color to make the image shine.
+
+### The `blur` setting:
+The blur setting defines whether or not your image will be blurred before it's quantized. Blurring does not really make a difference in how much detail will be lost in the image, because information will be lost anyways by quantizing, and the layer drawing procedure loses some detail to given that the deeper the layer is in the parallax effect the bigger the "pixels" will be so that when the higher images move around the background doesn't show through. You should only be turning blur off when you are [working with an already quantized imaged](working-with-an-already-quantized-image).
+
+## Working with an already quantized image:
+
+### Remove blur:
+Turn blur off so that the quantization isn't ruined.
+
+### Make sure the image is the right file format:
+If you want to pre-quantize an image, you will have to export it as a `.png` because other file formats have lossy compression that can ruin the quantization. If you still run into problems, try turning off all compression methods in your image editing software of choice.
+
+### Set the correct layer count:
+When you are asked how many layers you want, please answer the exact number of colors you quantized your image to. If you input a wrong value that is greater you will get an error, and if you input a lower value, part of the image will be lost in the end result.
