@@ -33,7 +33,6 @@ def generateLayers(img, n=32):
     colors = getRGBFromModeP(img)
     colors_sorted = colors.copy()
     colors_sorted.sort(reverse=True, key=blackAndWhiteFromRGB)
-    print(img.getcolors())
 
     #make the layers
     layers = [Image.new("RGBA", (width, height), (0,0,0,0)) for i in range(n)]
