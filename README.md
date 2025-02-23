@@ -38,7 +38,7 @@ Here are some album covers turned into wallpapers and the settings used to accom
   >>> #ab72b5
   ```
 6. The wallpaper will be the folder that has the name you entered in the `results` folder.
-7. To use it in Lively Wallpaper, refer back to my [guide on that](https://github.com/CatWaterCodes/LivelyWallpaperParallaxTemplate?tab=readme-ov-file#import-into-lively-wallpaper), in my (parallax walpaper template)[https://github.com/CatWaterCodes/LivelyWallpaperParallaxTemplate].
+7. To use it in Lively Wallpaper, refer back to my [guide on that](https://github.com/CatWaterCodes/LivelyWallpaperParallaxTemplate?tab=readme-ov-file#import-into-lively-wallpaper), in my [parallax walpaper template](https://github.com/CatWaterCodes/LivelyWallpaperParallaxTemplate).
 
 ## Settings:
 
