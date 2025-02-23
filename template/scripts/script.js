@@ -33,7 +33,7 @@ function updateImagePositions() {
 
         else {
             element.style.top = moveSpeed * mouseY + "px";
-            element.style.left = moveSpeed * mouseX + document.documentElement.clientWidth/2 - document.documentElement.clientHeight/2 + "px";
+            element.style.left = moveSpeed * mouseX + ((document.documentElement.clientWidth)/2 - (element.offsetWidth)/2) + "px";
         }
         
         moveSpeed -= 0.001;

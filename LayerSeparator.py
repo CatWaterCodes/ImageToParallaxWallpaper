@@ -19,27 +19,38 @@ def getRGBFromModeP(img: Image.Image):
     return colors
 
 def generateLayers(img, n=32):
+    #get image measurements
+    width, height = img.size
+
+    #get the images colors
     colors = []
     finished_layers = []
     if img.mode == "P":
         colors = getRGBFromModeP(img)
     colors_sorted = colors.copy()
-    colors_sorted.sort(reverse=True, key=blackAndWhiteFromRGB) #LIGHTEST COLOR AT THE START OF THE LIST
+    colors_sorted.sort(reverse=True, key=blackAndWhiteFromRGB)
 
-    layers = [Image.new("RGBA", (640, 640), (0,0,0,0)) for i in range(n)]
+    #make the layers
+    layers = [Image.new("RGBA", (width, height), (0,0,0,0)) for i in range(n)]
 
+    for i in [0,1,2,4,6,8,9,10,13,14,16,17,19,20,23,24,25,26,27,28,29,30,31]:
+        print(colors_sorted[i])
+    
+    
+    #iterate over the layers
     for i in range(n):
         layer = layers[i]
-
-        for y in range(640):
-            for x in range(640):
-
+        #iterate over every pixel of the layers
+        for y in range(height):
+            for x in range(width):
+                #fill the layers
                 if colors[img.getpixel((x, y))] == colors_sorted[i]:
                     draw = ImageDraw.Draw(layer)
                     draw.circle((x,y), (i+1)/(n/10), fill = colors[i] )
                     continue
         finished_layers.append(layer)
     
+    #return the layers
     return finished_layers
 
 def makeImageHTML(n: int):
@@ -48,10 +59,16 @@ def makeImageHTML(n: int):
         result += f'\n          <img src="layers/{i}.png" class="layers fit">'
     return result
 
-def generateParallaxBackground(img: str, name: str, n=32, bg_color = "#000000") -> None:
+def generateParallaxBackground(img: str, name: str, n=32, bg_color = "#000000", reverse=False) -> None:
     """Generates a parallax wallpaper from a single image. The path of the image has to be given in the 'img' parameter. The 'name' parameter is the name of the wallpaper you are making, and it can be anything. The 'bg_color' parameter takes in a hexadecimal value for the background color of the wallpaper, and it is set to '#000000' by default (remember to include the hashtag)."""
+    #open the image
     img = Image.open(img)
+    #verify it's in RGB and if it's not, convert it
+    if img.mode != "RBG":
+        img = img.convert("RGB")
+    #process the image to make the layer generationg easier
     processed_image = processImage(img, n)
+    #generate the layers
     parallax_layers = generateLayers(processed_image, n)
 
     #make the directory with the resulting background
