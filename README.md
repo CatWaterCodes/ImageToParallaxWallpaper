@@ -19,15 +19,11 @@ Here are some album covers turned into wallpapers and the settings used to accom
   ```shell
   cd ImageToParallaxWallpaper
   ```
-3. Activate the virtual environment:
-  ```shell
-  env/Scripts/activate
-  ```
-4. Run main.py:
+3. Run main.py:
   ```shell
   python main.py
   ```
-5. Fill out the settings as you like:
+4. Fill out the settings as you like:
   ```
   Select the image you want to use (path to the image):
   >>> graduation.png
@@ -38,8 +34,8 @@ Here are some album covers turned into wallpapers and the settings used to accom
   Select a background color for your wallpaper (hexadecimal with the hastag. Example: '#000000'): 
   >>> #ab72b5
   ```
-6. The wallpaper will be the folder that has the name you entered in the `results` folder.
-7. To use it in Lively Wallpaper, refer back to my [guide on that](https://github.com/CatWaterCodes/LivelyWallpaperParallaxTemplate?tab=readme-ov-file#import-into-lively-wallpaper), in my [parallax wallpaper template](https://github.com/CatWaterCodes/LivelyWallpaperParallaxTemplate).
+5. The wallpaper will be the folder that has the name you entered in the `results` folder.
+6. To use it in Lively Wallpaper, refer back to my [guide on that](https://github.com/CatWaterCodes/LivelyWallpaperParallaxTemplate?tab=readme-ov-file#import-into-lively-wallpaper), in my [parallax wallpaper template](https://github.com/CatWaterCodes/LivelyWallpaperParallaxTemplate).
 
 ## Settings:
 
