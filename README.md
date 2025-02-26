@@ -15,15 +15,15 @@ Here are some album covers turned into wallpapers and the settings used to accom
 
 ## How to use:
 1. Download the source code.
-2. Open it inside a terminal:
-  ```shell
-  cd ImageToParallaxWallpaper
+2. Install the required packages:
+  ```python
+  pip install -r requirements.txt
   ```
 3. Run main.py:
   ```shell
   python main.py
   ```
-4. Fill out the settings as you like:
+4. Fill out the settings as you like in the program's dialog:
   ```
   Select the image you want to use (path to the image):
   >>> graduation.png
