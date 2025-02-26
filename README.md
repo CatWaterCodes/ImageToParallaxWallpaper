@@ -29,6 +29,7 @@ Here are some album covers turned into wallpapers and the settings used to accom
   ```
 5. Fill out the settings as you like:
   ```
+  Select the image you want to use (path to the image):
   >>> graduation.png
   Select a name for your wallpaper: 
   >>> graduation
