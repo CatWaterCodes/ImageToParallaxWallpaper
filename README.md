@@ -2,6 +2,7 @@
 
 ## Create parallax wallpapers for Lively Wallpaper from a single image:
 This program is meant to separate the layers of an image and turn it into a parallax interactive wallpaper made with html/css/js. This wallpaper can be used for any wallpaper app that uses wallpaper made with these tools, but was specifically made with Lively Wallpaper in mind.
+It's also compatible with .ora archives, which you can export layered images as in most image editing or digital art applications (such as Krita and Gimp). The layers will be used as they are, without being resized or moved (aside from the parallax movement of course) to make it to convert layered digital art into an interactive parallax wallpaper using this tool.
 
 ## Previews:
 Here are some album covers turned into wallpapers and the settings used to accomplish that result:
