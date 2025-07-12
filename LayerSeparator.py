@@ -2,7 +2,7 @@ from PIL import Image, ImageFilter, ImageDraw
 from os import mkdir
 import shutil
 
-__all__ = ['generateParallaxBackground']
+__all__ = ['generateParallaxBackground', 'backgroundFromLayers']
            
 def blackAndWhiteFromRGB(RGB):
     r, g, b = RGB
@@ -59,28 +59,17 @@ def makeImageHTML(n: int):
         result += f'\n          <img src="layers/{i}.png" class="layers fit">'
     return result
 
-def generateParallaxBackground(img: str, name: str, n=32, bg_color = "#000000", blur=True) -> None:
-    """Generates a parallax wallpaper from a single image. The path of the image has to be given in the 'img' parameter. The 'name' parameter is the name of the wallpaper you are making, and it can be anything. The 'bg_color' parameter takes in a hexadecimal value for the background color of the wallpaper, and it is set to '#000000' by default (remember to include the hashtag)."""
-    #open the image
-    img = Image.open(img)
-    #verify it's in RGB and if it's not, convert it
-    if img.mode != "RBG":
-        img = img.convert("RGB")
-    #process the image to make the layer generationg easier
-    processed_image = processImage(img, n, blur)
-    #generate the layers
-    parallax_layers = generateLayers(processed_image, n)
-
+def backgroundFromLayers(layers: list, thumbnail: Image, name: str, bg_color: str) -> None:
     #make the directory with the resulting background
     shutil.copytree("template", f"results/{name}")
     #save all layers to the directory
-    for i in range(len(parallax_layers)): 
-        parallax_layers[i].save(f"results/{name}/layers/{i}.png")
+    for i in range(len(layers)): 
+        layers[i].save(f"results/{name}/layers/{i}.png")
 
     #modify the template html to include the new layers
     with open(f"results/{name}/index.html", "r") as indexhtml:
         html_content = indexhtml.read()
-    new_html = html_content.replace("REPLACEWITHIMAGES", makeImageHTML(n), 1)
+    new_html = html_content.replace("REPLACEWITHIMAGES", makeImageHTML(len(layers)), 1)
     with open(f"results/{name}/index.html", "w") as indexhtml:
         indexhtml.write(new_html)
     
@@ -99,7 +88,21 @@ def generateParallaxBackground(img: str, name: str, n=32, bg_color = "#000000", 
         livelyinfojson.write(new_json)
 
     #saves the complete image as a preview
-    processed_image.save(f"results/{name}/preview.png")
+    thumbnail.save(f"results/{name}/preview.png")
 
     #saves the complete image as the preview gif
-    processed_image.save(f"results/{name}/preview.gif")
+    thumbnail.save(f"results/{name}/preview.gif")
+
+def generateParallaxBackground(img: str, name: str, n=32, bg_color = "#000000", blur=True) -> None:
+    """Generates a parallax wallpaper from a single image. The path of the image has to be given in the 'img' parameter. The 'name' parameter is the name of the wallpaper you are making, and it can be anything. The 'bg_color' parameter takes in a hexadecimal value for the background color of the wallpaper, and it is set to '#000000' by default (remember to include the hashtag)."""
+    #open the image
+    img = Image.open(img)
+    #verify it's in RGB and if it's not, convert it
+    if img.mode != "RBG":
+        img = img.convert("RGB")
+    #process the image to make the layer generationg easier
+    processed_image = processImage(img, n, blur)
+    #generate the layers
+    parallax_layers = generateLayers(processed_image, n)
+
+    backgroundFromLayers(layers=parallax_layers, thumbnail=processed_image, name=name, bg_color=bg_color)

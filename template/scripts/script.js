@@ -15,6 +15,7 @@ function updateImagePositions() {
     let images = document.getElementsByClassName("layers");
     let imageArray = Array.from(images);
     imageArray.reverse()
+    let originalMoveSpeed = 0.032;
     let moveSpeed = 0.032;
 
     imageArray.forEach((element) => {
@@ -36,6 +37,6 @@ function updateImagePositions() {
             element.style.left = moveSpeed * mouseX + ((document.documentElement.clientWidth)/2 - (element.offsetWidth)/2) + "px";
         }
         
-        moveSpeed -= 0.001;
+        moveSpeed -= originalMoveSpeed/(imageArray.length-1);
     });
 }
