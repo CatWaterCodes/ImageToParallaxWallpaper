@@ -62,6 +62,7 @@ def makeImageHTML(n: int):
 def backgroundFromLayers(layers: list, thumbnail: Image, name: str, bg_color: str) -> None:
     #make the directory with the resulting background
     shutil.copytree("template", f"results/{name}")
+    mkdir(f"results/{name}/layers")
     #save all layers to the directory
     for i in range(len(layers)): 
         layers[i].save(f"results/{name}/layers/{i}.png")
